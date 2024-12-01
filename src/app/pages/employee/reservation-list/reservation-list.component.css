@@ -1,0 +1,19 @@
+header {
+    text-align: center;
+  }
+  header img {
+    max-height: 100px;
+    cursor: pointer;
+  }
+th{
+  font-weight: bold;
+  color: red;
+  text-decoration: underline;
+
+}
+mat-card-title{
+  font-weight: bold;
+  color: blueviolet;
+  text-decoration: underline;
+}
+

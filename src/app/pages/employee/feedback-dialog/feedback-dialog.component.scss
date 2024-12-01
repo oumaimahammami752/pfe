@@ -1,0 +1,34 @@
+.feedback-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emoji-toggle-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.emoji-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emoji {
+  font-size: 40px; /* Large emoji */
+  cursor: pointer;
+}
+
+.emoji-text {
+  font-size: 12px; /* Smaller text */
+  color: #666; /* Light text color */
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end; /* Aligns buttons to the right */
+  width: 100%;
+  margin-top: 15px;
+}

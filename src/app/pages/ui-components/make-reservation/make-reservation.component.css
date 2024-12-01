@@ -1,0 +1,110 @@
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 100px;
+  margin-right:80px;
+  padding: 90px;
+}
+
+th, td {
+  border: 1px solid #000;
+  padding: 2px;
+  text-align: center;
+
+
+}
+td, button {
+  background-color: white;
+}
+
+
+th {
+  background-color: whitesmoke;
+  color:black;
+  padding: 2px;
+}
+.ex {
+  color:darkred;
+}
+
+tbody tr:nth-child(even) {
+  background-color: white;
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
+  margin-top: -140px;
+
+}
+
+
+.error-message {
+  color: #071b0e;
+  font-weight: bold;
+}
+
+
+button {
+  margin: 5px;
+  padding: 4px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+button.selected {
+  background-color: #00c853; /* Your preferred color */
+  color: white;
+  font-size: 16px;
+}
+
+
+
+  .nn {
+    display: flex; /* Aligns the content horizontally */
+    justify-content: center; /* Centers the button horizontally */
+    align-items: center; /* Centers the button vertically */
+    padding: 20px; /* Adds some padding around the div */
+  }
+  .nn button {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    font-size: 16px; /* Font size */
+    padding: 12px 20px; /* Padding inside the button */
+    border: none; /* Removes the border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+    width: 200px; /* Fixed width for the button */
+    margin-top: -150px;
+  }
+
+  /* Hover effect for the button */
+  .nn button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+
+  /* Active effect when button is clicked */
+  .nn button:active {
+    background-color: #004085; /* Even darker blue when clicked */
+  }
+
+  /* Optional: Focus effect when button is clicked or focused */
+  .nn button:focus {
+    outline: none; /* Removes default focus outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow on focus */
+  }
+
+.mac {
+  color:darkred;
+}

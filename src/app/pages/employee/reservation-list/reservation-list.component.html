@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="body-wrapper">
+  <main class="pageWrapper maxWidth">
+    <mat-card class="cardWithShadow">
+      <mat-card-content>
+        <mat-card-title>Mes Reservations :</mat-card-title>
+        <div class="table-responsive">
+          <table mat-table [dataSource]="dataSource1" class="w-100">
+
+            <!-- Reservation Date Column -->
+            <ng-container matColumnDef="reservationDate">
+              <th mat-header-cell *matHeaderCellDef>Reservation Date</th>
+              <td mat-cell *matCellDef="let element">{{ element.reservationDate | date }}</td>
+            </ng-container>
+
+
+            <!-- Sandwich Selection Column -->
+            <ng-container matColumnDef="selectedSandwich">
+              <th mat-header-cell *matHeaderCellDef>Sandwich</th>
+              <td mat-cell *matCellDef="let element">{{ element.selectedSandwich }}</td>
+            </ng-container>
+
+            <!-- Garnish Selection Column -->
+            <ng-container matColumnDef="selectedGarnish">
+              <th mat-header-cell *matHeaderCellDef>Garniture</th>
+              <td mat-cell *matCellDef="let element">{{ element.selectedGarnish }}</td>
+            </ng-container>
+
+            <!-- Main Course Selection Column -->
+            <ng-container matColumnDef="selectedMainCourse">
+              <th mat-header-cell *matHeaderCellDef>Suite</th>
+              <td mat-cell *matCellDef="let element">{{ element.selectedMainCourse }}</td>
+            </ng-container>
+
+            <!-- Dessert Selection Column -->
+            <ng-container matColumnDef="selectedDessert">
+              <th mat-header-cell *matHeaderCellDef>Dessert</th>
+              <td mat-cell *matCellDef="let element">{{ element.selectedDessert }}</td>
+            </ng-container>
+
+            <!-- Entree Selection Column -->
+            <ng-container matColumnDef="selectedEntree">
+              <th mat-header-cell *matHeaderCellDef>Entree</th>
+              <td mat-cell *matCellDef="let element">{{ element.selectedEntree }}</td>
+            </ng-container>
+
+            <!-- Price Column -->
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef>Prix</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.selectedSandwich ? '1.2 Dinar' : '2 Dinar' }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>Actions</th>
+              <td mat-cell *matCellDef="let element">
+                <button mat-raised-button color="primary"
+                        (click)="openFeedbackDialog(element)"
+                        [disabled]="isBeforeToday(element.reservationDate)">
+                  Evaluer
+                </button>
+                <button mat-raised-button color="warn" style="margin-left:10px"
+                        (click)="cancelReservation(element.id)">
+                  Annuler
+                </button>
+              </td>
+            </ng-container>
+
+
+            <!-- Header and Row Definitions -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </main>
+</div>

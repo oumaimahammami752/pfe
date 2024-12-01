@@ -1,0 +1,64 @@
+<mat-toolbar class="topbar">
+    <!-- Mobile Menu -->
+    @if(!showToggle) {
+    <button
+      mat-mini-fab
+      color="inherit"
+      (click)="toggleMobileNav.emit()"
+      class="d-flex justify-content-center"
+    >
+      <i
+        class="iconify icon-20 d-flex"
+        data-icon="solar:hamburger-menu-line-duotone"
+      ></i>
+    </button>
+    }
+    <!-- --------------------------------------------------------------- -->
+    <!-- Notification Dropdown -->
+    <!-- --------------------------------------------------------------- -->
+    <button
+      mat-mini-fab
+      color="inherit"
+      aria-label="Notifications"
+      class="d-flex justify-content-center"
+    >
+      <span  matBadge="1" matBadgeOverlap="false" matBadgeSize="small">
+        <i class="iconify icon-20 d-flex" data-icon="solar:bell-line-duotone"></i>
+      </span>
+    </button>
+
+    <span class="flex-1-auto"></span>
+
+
+    <!-- --------------------------------------------------------------- -->
+    <!-- profile Dropdown -->
+    <!-- --------------------------------------------------------------- -->
+    <button
+      mat-fab
+      extended
+      color="inherit"
+      [matMenuTriggerFor]="profilemenu"
+      aria-label="Notifications"
+      class="d-flex justify-content-center profile-btn-dd"
+    >
+      <img
+        src="/assets/images/icon.png"
+        class="rounded-circle object-cover icon-35 profile-dd"
+        width="35"
+      />
+    </button>
+    <mat-menu #profilemenu="matMenu" class="topbar-dd cardWithShadow">
+
+
+
+      <div class="p-x-12 m-t-12">
+        <a
+          [routerLink]="['/authentication/login']"
+          mat-stroked-button
+          color="primary"
+          class="w-100"
+          >Log In</a
+        >
+      </div>
+    </mat-menu>
+  </mat-toolbar>

@@ -1,0 +1,79 @@
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+tr, mac{
+  Font-weight: bold;
+}
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 50px;
+    margin-right:80px;
+  }
+
+  th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #f0f0f0;
+    color:black;
+  }
+  .ex {
+    color:darkred;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+.success-message {
+  color: green;
+  font-weight: bold;
+}
+
+
+.error-message {
+  color: #071b0e;
+  font-weight: bold;
+}
+
+
+/* Base styles for all buttons */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 6px; /* Smaller padding for a compact look */
+  font-size: 14px; /* Smaller font size */
+  font-weight: 200; /* Medium font weight */
+  border: none;
+  border-radius: 5px; /* Small rounded corners */
+  cursor: pointer;
+  color: #fff; /* White text color */
+
+}
+.button{
+  margin-right: 2px;
+  font-size: 3px;
+}
+/* Specific styles for the primary button */
+.btn-primary {
+  background-color: #635bff; /* Primary color */
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.btn-primary:hover {
+  background-color: #534bff;
+}
+
+.mac {
+  color:darkred;
+}

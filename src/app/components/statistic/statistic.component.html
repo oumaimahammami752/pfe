@@ -1,0 +1,118 @@
+<mat-card style="background-color: transparent; box-shadow: none">
+  <mat-card-title>Reservation Statistics by Date</mat-card-title>
+  <mat-card-content>
+
+    <div class="xx">
+      <!-- Display selected date -->
+      <p>Date sélectionnée : {{ selectedDate | date:'yyyy-MM-dd' }}</p>
+
+      <!-- Date picker input -->
+      <input type="date" [(ngModel)]="selectedDate" (change)="onDateChange($event)">
+
+      <!-- Button to trigger action -->
+      <button (click)="fetchStatistics()">Stat</button>
+    </div>
+
+    <!-- Display statistics for the selected date -->
+    <div *ngIf="selectedDate && statisticsByDate[selectedDate]" class="date-section">
+      <h2>{{ selectedDate | date: 'longDate' }}</h2> <!-- Format the date nicely -->
+
+      <div class="tables-container">
+
+        <div class="table-wrapper">
+          <h3>Main Course Statistics</h3>
+          <table mat-table [dataSource]="getStatsArray(statisticsByDate[selectedDate].mainCourseStats)" class="mat-elevation-z8">
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Main Course </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="count">
+              <th mat-header-cell *matHeaderCellDef> Count </th>
+              <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="['name', 'count']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['name', 'count']"></tr>
+          </table>
+        </div>
+
+        <div class="table-wrapper">
+          <h3>Entree Statistics</h3>
+          <table mat-table [dataSource]="getStatsArray(statisticsByDate[selectedDate].entreeStats)" class="mat-elevation-z8">
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Entree </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="count">
+              <th mat-header-cell *matHeaderCellDef> Count </th>
+              <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="['name', 'count']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['name', 'count']"></tr>
+          </table>
+        </div>
+
+      </div>
+
+      <div class="tables-container">
+
+        <div class="table-wrapper">
+          <h3>Dessert Statistics</h3>
+          <table mat-table [dataSource]="getStatsArray(statisticsByDate[selectedDate].dessertStats)" class="mat-elevation-z8">
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Dessert </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="count">
+              <th mat-header-cell *matHeaderCellDef> Count </th>
+              <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="['name', 'count']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['name', 'count']"></tr>
+          </table>
+        </div>
+
+        <div class="table-wrapper">
+          <h3>Garnish Statistics</h3>
+          <table mat-table [dataSource]="getStatsArray(statisticsByDate[selectedDate].garnishStats)" class="mat-elevation-z8">
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Garnish </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="count">
+              <th mat-header-cell *matHeaderCellDef> Count </th>
+              <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="['name', 'count']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['name', 'count']"></tr>
+          </table>
+        </div>
+
+        <div class="table-wrapper">
+          <h3>Sandwich Statistics</h3>
+          <table mat-table [dataSource]="getStatsArray(statisticsByDate[selectedDate].sandwichStats)" class="mat-elevation-z8">
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Sandwich </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="count">
+              <th mat-header-cell *matHeaderCellDef> Count </th>
+              <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="['name', 'count']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['name', 'count']"></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

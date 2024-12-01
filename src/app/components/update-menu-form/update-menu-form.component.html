@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Update Menu</h2>
+<mat-dialog-content>
+  <form [formGroup]="updateMenuForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Entrée</mat-label>
+      <input matInput formControlName="entree">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Plat Principal</mat-label>
+      <input matInput formControlName="maincourse">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Garniture</mat-label>
+      <input matInput formControlName="garnish">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Dessert</mat-label>
+      <input matInput formControlName="dessert">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Sandwiches</mat-label>
+      <input matInput formControlName="sandwiches">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onSubmit()">Update</button>
+</mat-dialog-actions>

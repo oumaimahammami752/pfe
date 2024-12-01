@@ -1,0 +1,155 @@
+
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #ffe6d1;
+}
+
+
+
+.instructions{
+  text-align: center;
+  font-size: 21px;
+  color: crimson;
+  text-decoration-line: underline;
+  font-weight: bold;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Quicksand, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 90px;
+  margin-right:70px;
+  padding: 90px;
+}
+
+  #special_component {
+    width: 100%;
+    background-color: #fff;
+    margin: 0 auto;
+  }
+
+  table-container {
+    max-width: 100px;
+    margin: 40px auto;
+  }
+
+td {
+  border: 1px solid #000;
+  padding: 2px;
+  text-align: center;
+}
+
+table-responsive, td{
+  color : black;
+}
+  .nameandprice span {
+    background-color: #fff;
+  }
+tbody tr {
+  background-color: white;
+}
+thead {
+  background-color: whitesmoke;
+  color:black;
+  padding: 2px;
+}
+
+
+  .nameandprice td:last-child {
+    text-align: right;
+    width: 3em;
+    font-size: 20px;
+  }
+
+  .description td {
+    text-align: left;
+    padding: 8px 0px 15px 15px;
+  }
+
+  td:last-child span {
+    padding-left: 0.25em;
+  }
+
+mat-card-title{
+  font-weight: bold;
+  color: blueviolet;
+  text-decoration: underline;
+
+
+}
+.xx{
+  position: absolute; /* Make the button positionable */
+  left: 20px; /* Align the button 20px from the right */
+  text-decoration: underline;
+}
+
+button.web {
+  background-color: rebeccapurple; /* Primary blue */
+  color: white; /* Text color */
+  font-size: 16px; /* Font size */
+  font-weight: bold; /* Bold text */
+  padding: 20px 40px; /* Padding for better click area */
+
+  border-radius: 5px; /* Rounded corners */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+  position: absolute; /* Make the button positionable */
+  right: 20px; /* Align the button 20px from the right */
+
+
+}
+
+button.web:hover {
+  background-color: rebeccapurple;  /* Slightly darker blue on hover */
+  box-shadow: 8px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+
+}
+
+button.web:active {
+  background-color: #0d47a1; /* Darker blue when clicked */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
+  transform: scale(0.98); /* Slightly shrink the button on click */
+
+}
+
+button.web:focus {
+
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.5); /* Custom focus outline */
+
+}
+
+
+  @media (min-width: 992px) {
+    .specials-container table {
+      margin: 40px;
+      width: 45%;
+    }
+
+    .specials-table-container {
+      display: flex;
+      margin: 0px auto;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .editlink {
+      right: -20px;
+      top: -15px;
+    }
+  }
+th{
+  font-weight: bold;
+  color: red;
+  text-decoration: underline;
+}

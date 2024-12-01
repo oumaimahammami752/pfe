@@ -1,0 +1,146 @@
+<!-- user-list.component.html -->
+<mat-toolbar class="topbar">
+  <!-- Mobile Menu -->
+  @if(!showToggle) {
+    <button
+      mat-mini-fab
+      color="inherit"
+      (click)="toggleMobileNav.emit()"
+      class="d-flex justify-content-center"
+    >
+      <i
+        class="iconify icon-20 d-flex"
+        data-icon="solar:hamburger-menu-line-duotone"
+      ></i>
+    </button>
+  }
+
+  <!-- --------------------------------------------------------------- -->
+  <!-- Notification Dropdown -->
+  <!-- --------------------------------------------------------------- -->
+  <button
+    mat-mini-fab
+    color="inherit"
+    aria-label="Notifications"
+    class="d-flex justify-content-center"
+  >
+    <span  matBadge="1" matBadgeOverlap="false" matBadgeSize="small">
+      <i class="iconify icon-20 d-flex" data-icon="solar:bell-line-duotone"></i>
+    </span>
+  </button>
+
+  <span class="flex-1-auto"></span>
+
+
+  <!-- --------------------------------------------------------------- -->
+  <!-- profile Dropdown -->
+  <!-- --------------------------------------------------------------- -->
+  <button
+    mat-fab
+    extended
+    color="inherit"
+    [matMenuTriggerFor]="profilemenu"
+    aria-label="Notifications"
+    class="d-flex justify-content-center profile-btn-dd"
+  >
+    <img
+      src="/assets/images/profile/user-1.jpg"
+      class="rounded-circle object-cover icon-35 profile-dd"
+      width="35"
+    />
+  </button>
+  <mat-menu #profilemenu="matMenu" class="topbar-dd cardWithShadow">
+
+
+    <div class="p-x-12 m-t-12">
+      <a
+        [routerLink]="['/authentication/login']"
+        mat-stroked-button
+        color="primary"
+        class="w-100" (click)="logout()"
+      >Logout</a
+      >
+    </div>
+  </mat-menu>
+</mat-toolbar>
+
+<div class="body-wrapper">
+  <main class="pageWrapper maxWidth">
+<mat-card>
+  <br>
+  <mat-card-title>
+    <div class="xx">Liste des utilisateurs:</div>
+    <button
+      mat-raised-button
+      color="primary"
+      style="margin-left: 10px"
+      (click)="openAddUserDialog()" class="web"
+    >
+      Ajouter
+    </button>
+  </mat-card-title>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="table-responsive">
+      <table mat-table [dataSource]="dataSource" class="w-100">
+        <!-- Username Column -->
+        <ng-container matColumnDef="username">
+          <th mat-header-cell *matHeaderCellDef>Username</th>
+          <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+        </ng-container>
+
+        <!-- Lastname Column -->
+        <ng-container matColumnDef="lastname">
+          <th mat-header-cell *matHeaderCellDef>Lastname</th>
+          <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+        </ng-container>
+
+        <!-- Role Column -->
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef>Role</th>
+          <td mat-cell *matCellDef="let element">{{ element.role }}</td>
+        </ng-container>
+
+        <!-- Matricule Column -->
+        <ng-container matColumnDef="matricule">
+          <th mat-header-cell *matHeaderCellDef>Matricule</th>
+          <td mat-cell *matCellDef="let element">{{ element.matricule }}</td>
+        </ng-container>
+
+        <!-- Password Column -->
+        <ng-container matColumnDef="password">
+          <th mat-header-cell *matHeaderCellDef>Password</th>
+          <td mat-cell *matCellDef="let element">{{ element.password }}</td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="primary" (click)="openEditUserDialog(element)">
+              Modifier
+            </button>
+            <button mat-raised-button color="warn" style="margin-left:10px" (click)="deleteUser(element.id)">
+              Supprimer
+            </button>
+          </td>
+        </ng-container>
+
+        <!-- Header and Row Definitions -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+
+</mat-card>
+  </main>
+</div>
+

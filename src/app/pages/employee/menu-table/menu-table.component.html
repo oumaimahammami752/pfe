@@ -1,0 +1,78 @@
+<div class="body-wrapper">
+  <main class="pageWrapper maxWidth">
+    <div class="menu-container">
+      <table>
+        <thead>
+        <tr>
+          <th colspan="15">Menu for the Next 7 Days</th>
+        </tr>
+        <tr>
+          <th>Jour</th>
+          <th *ngFor="let day of days" colspan="2">{{ getDay(day) }}</th>
+        </tr>
+        <tr>
+          <th>...</th>
+          <th class="ex">Plat1</th>
+          <th class="ex">Plat2</th>
+          <th class="ex">Plat1</th>
+          <th class="ex">Plat2</th>
+          <th class="ex">Plat1</th>
+          <th class="ex">Plat2</th>
+          <th class="ex">Plat1</th>
+          <th class="ex">Plat2</th>
+          <th class="ex">Plat1</th>
+          <th class="ex">Plat2</th>
+          <th class="ex">Plat1</th>
+          <th class="ex">Plat2</th>
+          <th class="ex">Plat1</th>
+          <th class="ex">Plat2</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="mac">Soupe ou Entrée chaude</td>
+          <ng-container *ngFor="let menu of currentMenus">
+            <td contenteditable="true" (blur)="updateValue(menu, 'entree', $event)">{{ menu.entree }}</td>
+
+          </ng-container>
+        </tr>
+        <tr>
+          <td class="mac">Suite</td>
+          <ng-container *ngFor="let menu of currentMenus">
+            <td contenteditable="true" (blur)="updateValue(menu, 'mainCourse', $event)">{{ menu.mainCourse }}</td>
+          </ng-container>
+        </tr>
+
+        <tr>
+          <td class="mac">Garniture</td>
+          <ng-container *ngFor="let menu of currentMenus">
+            <td contenteditable="true" (blur)="updateValue(menu, 'garnish', $event)">{{ menu.garnish }}</td>
+          </ng-container>
+        </tr>
+        <tr>
+          <td class="mac">Dessert</td>
+          <ng-container *ngFor="let menu of currentMenus">
+            <td contenteditable="true" (blur)="updateValue(menu, 'dessert', $event)">{{ menu.dessert }}</td>
+          </ng-container>
+        </tr>
+        <tr>
+          <td class="mac">Sandwich</td>
+          <ng-container *ngFor="let menu of currentMenus">
+            <td contenteditable="true" (blur)="updateValue(menu, 'sandwiches', $event)">
+              {{ menu.sandwiches.join(', ') }}
+            </td>
+          </ng-container>
+        </tr>
+        </tbody>
+      </table>
+
+      <!-- Update button to trigger saving of all menus -->
+      <button (click)="saveUpdates()" class="btn btn-primary">Update</button>
+
+      <!-- Display success or error message -->
+      <div *ngIf="message" [ngClass]="{'success-message': success, 'error-message': !success}">
+        {{ message }}
+      </div>
+    </div>
+  </main>
+</div>

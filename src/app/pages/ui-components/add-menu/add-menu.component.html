@@ -1,0 +1,33 @@
+<mat-card class="cardWithShadow">
+  <mat-card-title>Ajouter Menu 🛎️</mat-card-title>
+  <mat-card-content>
+    <div>
+      <mat-card>
+        <!-- Form to add a new column -->
+        <form [formGroup]="newColumnForm">
+          <mat-form-field>
+            <mat-label>Ajouter une colonne </mat-label>
+            <input matInput formControlName="columnName" placeholder="Enter new column name" />
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="Ajouter()">Ajouter</button>
+        </form>
+
+        <!-- Dynamic table displaying columns -->
+        <table mat-table [dataSource]="tableData">
+          <thead>
+          <tr>
+            <th *ngFor="let column of menuColumns">{{ column }}</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let row of tableData">
+            <td *ngFor="let column of menuColumns">{{ row[column] }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </mat-card>
+    </div>
+
+
+  </mat-card-content>
+</mat-card>

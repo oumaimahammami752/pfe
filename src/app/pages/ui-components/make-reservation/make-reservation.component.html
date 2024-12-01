@@ -1,0 +1,113 @@
+<div class="body-wrapper">
+  <main class="pageWrapper maxWidth">
+    <div class="menu-container">
+      <table>
+        <thead>
+        <tr>
+          <th colspan="15">Menu for the Next 7 Days</th>
+        </tr>
+        <tr>
+          <th>Jour</th>
+          <th *ngFor="let day of days" colspan="2">{{ getDay(day) }}</th>
+        </tr>
+        <tr>
+          <th>...</th>
+          <th class="ex">Plat1</th>
+          <th class="ex">Plat2</th>
+          <th class="ex">Plat1</th>
+          <th class="ex">Plat2</th>
+          <th class="ex">Plat1</th>
+          <th class="ex">Plat2</th>
+          <th class="ex">Plat1</th>
+          <th class="ex">Plat2</th>
+          <th class="ex">Plat1</th>
+          <th class="ex">Plat2</th>
+          <th class="ex">Plat1</th>
+          <th class="ex">Plat2</th>
+          <th class="ex">Plat1</th>
+          <th class="ex">Plat2</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="mac">Soupe ou Entrée chaude</td>
+          <ng-container *ngFor="let menu of currentMenus">
+            <td>
+              <button
+                [ngClass]="{'selected': isSelected(menu?.date, 'entree', menu?.entree)}"
+                (click)="selectOption(menu?.date, 'entree', menu?.entree)">
+                {{ menu?.entree }}
+              </button>
+            </td>
+          </ng-container>
+        </tr>
+        <tr>
+          <td class="mac">Suite</td>
+          <ng-container *ngFor="let menu of currentMenus">
+            <td>
+              <button
+                [ngClass]="{'selected': isSelected(menu?.date, 'mainCourse', menu?.mainCourse)}"
+                (click)="selectOption(menu?.date, 'mainCourse', menu?.mainCourse)">
+                {{ menu?.mainCourse }}
+              </button>
+            </td>
+          </ng-container>
+        </tr>
+
+        <tr>
+          <td class="mac">Garniture</td>
+          <ng-container *ngFor="let menu of currentMenus">
+            <td>
+              <button
+                [ngClass]="{'selected': isSelected(menu?.date, 'garnish', menu?.garnish)}"
+                (click)="selectOption(menu?.date, 'garnish', menu?.garnish)">
+                {{ menu?.garnish }}
+              </button>
+            </td>
+          </ng-container>
+        </tr>
+        <tr>
+          <td class="mac">Dessert</td>
+          <ng-container *ngFor="let menu of currentMenus">
+            <td>
+              <button
+                [ngClass]="{'selected': isSelected(menu?.date, 'dessert', menu?.dessert)}"
+                (click)="selectOption(menu?.date, 'dessert', menu?.dessert)">
+                {{ menu?.dessert }}
+              </button>
+            </td>
+          </ng-container>
+        </tr>
+        <tr>
+          <td class="mac">Sandwich</td>
+          <!-- Loop with a step of 2 -->
+          <ng-container *ngFor="let menu of currentMenus; let i = index">
+            <!-- Only render the <td> for every second item -->
+            <ng-container *ngIf="i % 2 === 0">
+              <td colspan="2">
+                <ng-container *ngFor="let sandwich of getSandwichesForDay(menu?.date)">
+                  <button
+                    [ngClass]="{'selected': isSelected(menu?.date, 'sandwich', sandwich)}"
+                    (click)="selectOption(menu?.date, 'sandwich', sandwich)">
+                    {{ sandwich }}
+                  </button>
+                </ng-container>
+              </td>
+            </ng-container>
+          </ng-container>
+        </tr>
+
+        </tbody>
+      </table>
+
+      <div class="nn">
+        <!-- Update button to trigger saving of all menus -->
+        <button (click)="saveUpdates()"  class="btn btn-primary">Make Reservation</button>
+      </div>
+      <!-- Display success or error message -->
+      <div *ngIf="message" [ngClass]="{'success-message': success, 'error-message': !success}">
+        {{ message }}
+      </div>
+    </div>
+  </main>
+</div>

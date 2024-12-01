@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Donnez votre avis</h1>
+<div mat-dialog-content class="feedback-content">
+  <mat-label>Évaluez votre expérience (1 to 10)</mat-label>
+
+  <mat-radio-group [(ngModel)]="selectedFeedbackRating" class="rating-group">
+    <mat-radio-button *ngFor="let rating of ratings" [value]="rating" class="rating-button">
+      {{ rating }}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!selectedFeedbackRating">
+    Envoyer
+  </button>
+  <button mat-button (click)="onCancel()">Annuler</button>
+</div>

@@ -1,0 +1,19 @@
+/* menu-table.component.css */
+.week-header {
+    font-weight: bold;
+    background-color: #f1f1f1;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  
+  .week-header-row {
+    background-color: #f1f1f1;
+  }
+  
+  .mat-header-cell {
+    font-weight: bold;
+  }
+  
+  .mat-cell {
+    padding: 8px;
+  }
+  

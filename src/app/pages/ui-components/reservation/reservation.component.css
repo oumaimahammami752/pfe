@@ -1,0 +1,64 @@
+.cardWithShadow {
+    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    padding: 20px;
+  }
+
+  table {
+    width: 100%;
+  }
+
+
+  th.mat-header-cell, td.mat-cell {
+    padding: 7px;
+  }
+th.mat-header-cell{
+
+  color: darkred;
+
+}
+td.red {
+  color: #007bff;
+
+}
+
+hr {
+  border: 1px solid black;
+
+}
+  .mat-elevation-z8 {
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+
+mat-card-title{
+  color: #0056b3;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+
+date-feedback-section {display: flex; flex-direction: column; gap: 10px;
+}
+
+.table-responsive th {
+  color : mediumvioletred;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.date-feedback-section {
+  display: flex;
+  gap: 10px; /* Ajustez l'espace entre les éléments */
+}
+
+.form-item {
+  flex: 1; /* Assure que chaque élément prend la même largeur */
+}
+
+
+
+
